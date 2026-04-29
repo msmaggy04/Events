@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Events Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Local Events Finder</h1>
+      <p class="subtitle">Discover nearby, in-person events by date range, zip code, radius, and event type.</p>
+
+      <form id="search-form" class="card">
+        <div class="grid">
+          <label>
+            Zip Code
+            <input id="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 10001" required />
+          </label>
+
+          <label>
+            Radius (miles)
+            <input id="radius" type="number" min="1" max="200" value="25" required />
+          </label>
+
+          <label>
+            Start Date
+            <input id="start-date" type="date" required />
+          </label>
+
+          <label>
+            End Date
+            <input id="end-date" type="date" required />
+          </label>
+
+          <label class="full">
+            Event Types
+            <select id="event-types" multiple size="5" aria-label="Choose one or more event types">
+              <option value="Music">Music</option>
+              <option value="Food">Food</option>
+              <option value="Sports">Sports</option>
+              <option value="Arts">Arts</option>
+              <option value="Family">Family</option>
+            </select>
+            <small>Hold Ctrl/Cmd to select multiple.</small>
+          </label>
+        </div>
+
+        <button type="submit">Search Events</button>
+      </form>
+
+      <section class="card">
+        <h2>Results</h2>
+        <p id="result-meta">No search yet.</p>
+        <ul id="results" class="results"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
